@@ -1,0 +1,4 @@
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\bin\Debug\YSB.Common.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\bin\Debug\YSB.Common.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\obj\Debug\YSB.Common.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\obj\Debug\YSB.Common.pdb

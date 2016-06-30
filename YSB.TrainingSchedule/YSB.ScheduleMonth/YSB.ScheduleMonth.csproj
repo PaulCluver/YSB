@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2FC71B7-9AB8-47E5-A0CE-F885173C16BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YSB.ScheduleMonth</RootNamespace>
+    <AssemblyName>YSB.ScheduleMonth</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\..\..\..\External Binaries\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Clr4">
+      <HintPath>..\..\..\..\External Binaries\Machine.Specifications.Clr4.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Should">
+      <HintPath>..\..\..\..\External Binaries\Machine.Specifications.Should.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.TDNetRunner">
+      <HintPath>..\..\..\..\External Binaries\Machine.Specifications.TDNetRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animals.cs" />
+    <Compile Include="ScheduleMonthItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleMonthManager.cs" />
+    <Compile Include="when_creating_a_schedule_month.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YSB.Common\YSB.Common.csproj">
+      <Project>{70222b3d-02cd-4eac-8a81-6549e655b5d2}</Project>
+      <Name>YSB.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YSB.Curriculum\YSB.Curriculum.csproj">
+      <Project>{e1bfa131-5c0b-4036-a898-4057c8de3e80}</Project>
+      <Name>YSB.Curriculum</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

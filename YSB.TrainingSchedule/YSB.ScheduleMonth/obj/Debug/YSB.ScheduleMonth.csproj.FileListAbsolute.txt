@@ -1,0 +1,13 @@
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.ScheduleMonth.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.ScheduleMonth.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.Common.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.Curriculum.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.Common.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\YSB.Curriculum.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\obj\Debug\YSB.ScheduleMonth.csprojResolveAssemblyReference.cache
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\obj\Debug\YSB.ScheduleMonth.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\obj\Debug\YSB.ScheduleMonth.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\Machine.Specifications.Clr4.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\Machine.Specifications.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\Machine.Specifications.Should.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.ScheduleMonth\bin\Debug\Machine.Specifications.TDNetRunner.dll
