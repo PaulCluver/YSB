@@ -7,7 +7,6 @@ namespace YSB.TrainingSchedule
 {
     public class ScheduleItem
     {
-        private List<Enums.AnimalAttackMethodForms> AnimalAttackMethodFormsExclusions;
         public Enums.Animals Animal { get; internal set; }
         public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
@@ -20,18 +19,17 @@ namespace YSB.TrainingSchedule
 
         private static CurriculumManager cm;
 
-        public ScheduleItem(List<Enums.AnimalAttackMethodForms> animalAttackMethodFormsExclusions, Enums.Animals animal, DateTime startDate)
+        public ScheduleItem(Enums.Animals animal, DateTime startDate)
         {
             this.Animal = animal;
             this.StartDate = startDate;
-            this.EndDate = startDate.AddMonths(2);
+            this.EndDate = startDate.AddMonths(3);
             this.TotalWeeks = (Convert.ToInt32((EndDate - StartDate).TotalDays / 7)) - 1;
             this.RemainingDays = GetRemainingDays();
             this.TotalDays = Convert.ToInt32((EndDate - StartDate).TotalDays);
             this.DoneDays = TotalDays - RemainingDays;
             this.PercentageDone = GetPercentageDone(TotalDays, DoneDays);
-            this.AnimalAttackMethodFormsExclusions = animalAttackMethodFormsExclusions;
-            cm = new CurriculumManager(this.Animal, this.AnimalAttackMethodFormsExclusions);
+            cm = new CurriculumManager(this.Animal);
             this.Curriculum = cm.GeneratedCurriculum;
         }
 

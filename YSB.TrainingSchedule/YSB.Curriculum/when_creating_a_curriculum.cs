@@ -13,7 +13,7 @@ namespace YSB.Curriculum
 
         Establish context = () =>
         {
-            manager = new CurriculumManager(Enums.Animals.Lion, new List<Enums.AnimalAttackMethodForms>() { Enums.AnimalAttackMethodForms.Lion_Blocking_Enfolding });
+            manager = new CurriculumManager(Enums.Animals.Lion);
         };
 
         Because of = () =>
@@ -53,17 +53,22 @@ namespace YSB.Curriculum
 
         private It should_have_no_duplicated_attack_method_forms = () =>
         {
-            List<Enums.AnimalAttackMethodForms> attackMethodsAndForms = new List<Enums.AnimalAttackMethodForms>();
-            foreach (var item in result)
-            {
-                foreach (var attackMethodForms in item.AttackMethodForms)
-                {
-                    attackMethodsAndForms.Add(attackMethodForms);
-                }
-            }
-
+            List<Enums.AnimalAttackMethodForms> attackMethodsAndForms = result.FirstOrDefault().AttackMethodForms.GetRange(0, 8);
             var query = attackMethodsAndForms.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
             query.Count.ShouldEqual(0);
+        };
+
+        private It should_have_one_of_each_strategy_in_the_attack_method_forms = () =>
+        {
+            List<Enums.AnimalAttackMethodForms> attackMethodsAndForms = result.FirstOrDefault().AttackMethodForms.GetRange(0, 8);
+
+            foreach (Enums.AnimalStrategies strategy in Enum.GetValues(typeof(Enums.AnimalStrategies)))
+            {
+                if (!strategy.ToString().Equals(Enums.AnimalStrategies.Interlocking.ToString()))
+                {
+                    attackMethodsAndForms.FindIndex(x => x.ToString().Contains(strategy.ToString())).ShouldNotEqual(-1);
+                }
+            }
         };
     }
 }

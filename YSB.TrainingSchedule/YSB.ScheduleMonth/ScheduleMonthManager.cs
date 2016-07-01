@@ -13,24 +13,33 @@ namespace YSB.ScheduleMonth
         {
             this.ScheduleMonthContainers = new List<ScheduleMonthItem>();
             List<Animals> animals = GetAnimals();
-            DateTime startDate = new DateTime(2015, 03, 1);
+            DateTime startDate = new DateTime(2016, 08, 01);
 
             for (int i = 0; i < ( (Enum.GetNames(typeof(Enums.AnimalAttackMethodForms)).Length) / (Enum.GetNames(typeof(Enums.AnimalStrategies)).Length)); i++)
             {
                 if (i % 2 == 0)
                 {
-                    startDate = startDate.AddMonths(3);
+                    startDate = GetStartDate(i, startDate);
                     animals.Add(new Animals(Enums.Animals.Lion, true));
                     this.ScheduleMonthContainers.Add(new ScheduleMonthItem(animals.Where(x => x.Animal.Equals(Enums.Animals.Lion)).FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate));
                 }
                 else
                 {
                     List<Animals> filteredAnimals = animals.Where(x => x.Animal.Equals(Enums.Animals.Lion).Equals(false)).Cast<Animals>().ToList();
-                    startDate = startDate.AddMonths(3);
+                    startDate = GetStartDate(i, startDate);
                     this.ScheduleMonthContainers.Add(new ScheduleMonthItem(filteredAnimals.FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate));
                     animals = PopTheAnimal(filteredAnimals);
                 }
             }
+        }
+
+        private static DateTime GetStartDate(int index, DateTime startDate)
+        {
+            if (index > 0)
+            {
+                startDate = startDate.AddMonths(3);
+            }
+            return startDate;
         }
 
         private static List<Animals> PopTheAnimal(List<Animals> animals)

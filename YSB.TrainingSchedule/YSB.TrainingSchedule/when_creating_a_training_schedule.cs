@@ -1,7 +1,6 @@
 ﻿using Machine.Specifications;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using YSB.Common;
 
@@ -79,15 +78,21 @@ namespace YSB.TrainingSchedule
         private It should_have_a_remaining_days_of_0_if_a_schedule_is_in_the_past = () =>
         {
             var results = schedule.Where(x => x.EndDate < DateTime.Now);
-            results.FirstOrDefault().RemainingDays.ShouldEqual(0);
+            if (results.Count() > 0)
+            {
+                results.FirstOrDefault().RemainingDays.ShouldEqual(0);
+            }
         };
 
         private It should_have_the_expected_remaining_days_if_a_schedule_is_current = () =>
         {
             var results = schedule.Where(x => x.EndDate > DateTime.Today && x.StartDate < DateTime.Now);
-            TimeSpan t = results.FirstOrDefault().EndDate - DateTime.Now;
-            int remainingDays = Math.Abs(t.Days);
-            results.FirstOrDefault().RemainingDays.ShouldEqual(remainingDays);
+            if (results.Count() > 0)
+            {
+                TimeSpan t = results.FirstOrDefault().EndDate - DateTime.Now;
+                int remainingDays = Math.Abs(t.Days);
+                results.FirstOrDefault().RemainingDays.ShouldEqual(remainingDays);
+            }
         };
 
         private It should_have_a_percentage_done_value = () =>

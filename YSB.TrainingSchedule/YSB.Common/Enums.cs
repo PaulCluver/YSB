@@ -7,13 +7,13 @@
             [EnumOrder(Order = 1)]
             Lion = 1,
             [EnumOrder(Order = 2)]
-            Dragon = 2,
+            Bear = 2,
             [EnumOrder(Order = 3)]
-            Bear = 3,
+            Rooster = 3,
             [EnumOrder(Order = 4)]
-            Rooster = 4,
+            Phoenix = 4,
             [EnumOrder(Order = 5)]
-            Phoenix = 5
+            Dragon = 5,
         }
         public enum AttackMethods
         {
@@ -539,12 +539,12 @@
         public enum AnimalStrategies
         {
             Interlocking,
-            MovingWithTheForce,
-            TurningTheBack,
-            HoldingAndLifting,
+            Moving_With_The_Force,
+            Turning_The_Back,
+            Holding_And_Lifting,
             Windmill,
-            LyingStep,
-            ReversingTheBody,
+            Lying_Step,
+            Reversing_The_Body,
             Enfolding
         }
     }
