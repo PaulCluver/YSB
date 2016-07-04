@@ -64,11 +64,25 @@ namespace YSB.Curriculum
 
             foreach (Enums.AnimalStrategies strategy in Enum.GetValues(typeof(Enums.AnimalStrategies)))
             {
-                if (!strategy.ToString().Equals(Enums.AnimalStrategies.Interlocking.ToString()))
+                if (!strategy.ToString().Equals(Enums.AnimalStrategies.Lion_Interlocking.ToString()))
                 {
-                    attackMethodsAndForms.FindIndex(x => x.ToString().Contains(strategy.ToString())).ShouldNotEqual(-1);
+                    string[] name = strategy.ToString().Split('_');        
+
+                    attackMethodsAndForms.FindIndex(x => x.ToString().Contains(name[1])).ShouldNotEqual(-1);
                 }
             }
+        };
+
+        private It should_get_the_expected_strategies_for_the_given_animal = () =>
+        {
+            List<Enums.AnimalStrategies> animalStrategies = result.FirstOrDefault().Strategies;
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Snake_Moving_With_The_Force);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Bear_Turning_The_Back);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Dragon_Holding_And_Lifting);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Phoenix_Windmill);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Rooster_Lying_Step);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Unicorn_Reversing_The_Body);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Monkey_Enfolding);
         };
     }
 }

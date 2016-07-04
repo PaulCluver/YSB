@@ -15,19 +15,23 @@ namespace YSB.Curriculum
         {
             this.Animal = animal;
             this.GeneratedCurriculum = new List<CurriculumItem>();
-            ManageAnimalStrategies(animal);
-            GeneratedCurriculum.Add(new CurriculumItem(animal, GetAnimalAttackMethods(animal), GetAnimalTurningMethods(animal), GetAnimalStandingMethods(animal), GetAnimalAttackMethodForms(new Random(), animal)));
+            
+            GeneratedCurriculum.Add(new CurriculumItem(animal, GetAnimalAttackMethods(animal), GetAnimalTurningMethods(animal), GetAnimalStandingMethods(animal), GetAnimalAttackMethodForms(new Random(), animal), GetAnimalStrategies(animal)));
         }
 
-        private void ManageAnimalStrategies(Enums.Animals animal)
+        private List<Enums.AnimalStrategies> GetAnimalStrategies(Enums.Animals animal)
         {
-            PopulateAnimalStrategies();
-            RefreshAnimalStrategies(animal);
+            this.AnimalStrategies = Enum.GetValues(typeof(Enums.AnimalStrategies)).Cast<Enums.AnimalStrategies>().ToList();
+            int indexOfAnimal = this.AnimalStrategies.FindIndex(x => x.ToString().Contains(animal.ToString()));
+            this.AnimalStrategies.RemoveAt(indexOfAnimal);
+
+            return this.AnimalStrategies;
         }
 
         private List<Enums.AnimalAttackMethodForms> GetAnimalAttackMethodForms(Random rand, Enums.Animals animal)
         {
             List<Enums.AnimalAttackMethodForms> animalAttackMethodForms = new List<Enums.AnimalAttackMethodForms>();
+            this.AnimalStrategies = new List<Enums.AnimalStrategies>();
 
             foreach (Enums.AnimalAttackMethods animalAttackMethod in Enum.GetValues(typeof(Enums.AnimalAttackMethods)).Cast<Enums.AnimalAttackMethods>().Where(x => x.ToString().Contains(animal.ToString())))
             {
@@ -37,19 +41,26 @@ namespace YSB.Curriculum
                 {
                     if (this.AnimalStrategies.Count == 0)
                     {
-                        ManageAnimalStrategies(animal);
+                        GetAnimalStrategies(animal);
 
                     }
                     int randStrategy = rand.Next(0, this.AnimalStrategies.Count());
                     Enums.AnimalStrategies animalStrategy = this.AnimalStrategies.Cast<Enums.AnimalStrategies>().ElementAt(randStrategy);
                     int randIntAttackMethod = rand.Next(0, items.Where(x => x.ToString().Contains(animalStrategy.ToString())).Count());
+                    string strategyName = GetStrategyName(animalStrategy);
+                    Enums.AnimalAttackMethodForms animalAttackMethodFormsItem = items.Where(x => x.ToString().Contains(strategyName)).Cast<Enums.AnimalAttackMethodForms>().ElementAt(randIntAttackMethod);
                     RemoveItemFromAnimalStrategy(animalStrategy);
-                    Enums.AnimalAttackMethodForms animalAttackMethodFormsItem = items.Where(x => x.ToString().Contains(animalStrategy.ToString())).Cast<Enums.AnimalAttackMethodForms>().ElementAt(randIntAttackMethod);
                     animalAttackMethodForms.Add(animalAttackMethodFormsItem);
                 }
             }
 
             return animalAttackMethodForms;
+        }
+
+        private string GetStrategyName(Enums.AnimalStrategies animalStrategy)
+        {
+            string[] name = animalStrategy.ToString().Split('_');
+            return name[1];
         }
 
         private List<Enums.StandingMethods> GetAnimalStandingMethods(Enums.Animals animal)
@@ -92,33 +103,6 @@ namespace YSB.Curriculum
             }
 
             return animalAttackMethods;
-        }
-
-        private void PopulateAnimalStrategies()
-        {
-            this.AnimalStrategies = Enum.GetValues(typeof(Enums.AnimalStrategies)).Cast<Enums.AnimalStrategies>().ToList();
-        }
-
-        private void RefreshAnimalStrategies(Enums.Animals animal)
-        {
-            switch (animal)
-            {
-                case Enums.Animals.Lion:
-                    this.AnimalStrategies.Remove(Enums.AnimalStrategies.Interlocking);
-                    break;
-                case Enums.Animals.Bear:
-                    this.AnimalStrategies.Remove(Enums.AnimalStrategies.Turning_The_Back);
-                    break;
-                case Enums.Animals.Dragon:
-                    this.AnimalStrategies.Remove(Enums.AnimalStrategies.Holding_And_Lifting);
-                    break;
-                case Enums.Animals.Phoenix:
-                    this.AnimalStrategies.Remove(Enums.AnimalStrategies.Windmill);
-                    break;
-                case Enums.Animals.Rooster:
-                    this.AnimalStrategies.Remove(Enums.AnimalStrategies.Lying_Step);
-                    break;
-            }
         }
 
         private void RemoveItemFromAnimalStrategy(Enums.AnimalStrategies animalStrategy)

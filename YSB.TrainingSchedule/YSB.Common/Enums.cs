@@ -538,14 +538,14 @@
         }
         public enum AnimalStrategies
         {
-            Interlocking,
-            Moving_With_The_Force,
-            Turning_The_Back,
-            Holding_And_Lifting,
-            Windmill,
-            Lying_Step,
-            Reversing_The_Body,
-            Enfolding
+            Lion_Interlocking,
+            Snake_Moving_With_The_Force,
+            Bear_Turning_The_Back,
+            Dragon_Holding_And_Lifting,
+            Phoenix_Windmill,
+            Rooster_Lying_Step,
+            Unicorn_Reversing_The_Body,
+            Monkey_Enfolding
         }
     }
 }
