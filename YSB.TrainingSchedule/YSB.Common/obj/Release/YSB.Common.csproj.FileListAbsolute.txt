@@ -1,5 +1,0 @@
-E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\bin\Release\YSB.Common.dll
-E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\bin\Release\YSB.Common.pdb
-E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\obj\Release\YSB.Common.csprojResolveAssemblyReference.cache
-E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\obj\Release\YSB.Common.dll
-E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Common\obj\Release\YSB.Common.pdb
