@@ -21,13 +21,13 @@ namespace YSB.ScheduleMonth
                 {
                     startDate = GetStartDate(i, startDate);
                     animals.Add(new Animals(Enums.Animals.Lion, true));
-                    this.ScheduleMonthContainers.Add(new ScheduleMonthItem(animals.Where(x => x.Animal.Equals(Enums.Animals.Lion)).FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate));
+                    this.ScheduleMonthContainers.Add(new ScheduleMonthItem(animals.Where(x => x.Animal.Equals(Enums.Animals.Lion)).FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate, 2));
                 }
                 else
                 {
                     List<Animals> filteredAnimals = animals.Where(x => x.Animal.Equals(Enums.Animals.Lion).Equals(false)).Cast<Animals>().ToList();
                     startDate = GetStartDate(i, startDate);
-                    this.ScheduleMonthContainers.Add(new ScheduleMonthItem(filteredAnimals.FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate));
+                    this.ScheduleMonthContainers.Add(new ScheduleMonthItem(filteredAnimals.FirstOrDefault().Animal, animals.FirstOrDefault().Primary, startDate, 4));
                     animals = PopTheAnimal(filteredAnimals);
                 }
             }
@@ -37,7 +37,7 @@ namespace YSB.ScheduleMonth
         {
             if (index > 0)
             {
-                startDate = startDate.AddMonths(3);
+                startDate = startDate.AddMonths(4);
             }
             return startDate;
         }

@@ -32,7 +32,7 @@ namespace YSB.TrainingSchedule
                 {
                     foreach (KeyValuePair<Enums.Animals, DateTime> vals in pair.Value)
                     {
-                        GeneratedSchedule.Add(new ScheduleItem(vals.Key, vals.Value));
+                        GeneratedSchedule.Add(new ScheduleItem(vals.Key, vals.Value, sm.Duration));
                     }
                 }
             }

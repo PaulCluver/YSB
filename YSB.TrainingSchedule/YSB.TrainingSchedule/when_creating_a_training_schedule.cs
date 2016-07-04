@@ -47,7 +47,6 @@ namespace YSB.TrainingSchedule
 
         private It should_have_the_expected_count_of_total_weeks = () =>
         {
-
             DateTime startDate = schedule.FirstOrDefault().StartDate;
             DateTime endDate = schedule.FirstOrDefault().EndDate;
             int totalWeeks = (Convert.ToInt32((endDate - startDate).TotalDays / 7)) - 1;

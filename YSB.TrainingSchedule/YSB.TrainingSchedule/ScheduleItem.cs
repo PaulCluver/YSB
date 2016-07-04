@@ -19,11 +19,11 @@ namespace YSB.TrainingSchedule
 
         private static CurriculumManager cm;
 
-        public ScheduleItem(Enums.Animals animal, DateTime startDate)
+        public ScheduleItem(Enums.Animals animal, DateTime startDate, int duration)
         {
             this.Animal = animal;
             this.StartDate = startDate;
-            this.EndDate = startDate.AddMonths(3);
+            this.EndDate = startDate.AddMonths(duration);
             this.TotalWeeks = (Convert.ToInt32((EndDate - StartDate).TotalDays / 7)) - 1;
             this.RemainingDays = GetRemainingDays();
             this.TotalDays = Convert.ToInt32((EndDate - StartDate).TotalDays);
