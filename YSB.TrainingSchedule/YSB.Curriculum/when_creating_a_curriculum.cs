@@ -13,7 +13,7 @@ namespace YSB.Curriculum
 
         Establish context = () =>
         {
-            manager = new CurriculumManager(Enums.Animals.Lion);
+            manager = new CurriculumManager(1, Enums.Animals.Lion);
         };
 
         Because of = () =>

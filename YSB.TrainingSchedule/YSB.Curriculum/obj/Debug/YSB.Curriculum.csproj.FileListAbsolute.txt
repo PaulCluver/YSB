@@ -1,0 +1,14 @@
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\YSB.Curriculum.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\YSB.Curriculum.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Fakes.Adapters.NSubstitute.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Specifications.Clr4.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Specifications.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Specifications.Should.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Specifications.TDNetRunner.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\YSB.Common.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\Machine.Fakes.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\NSubstitute.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Debug\YSB.Common.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Debug\YSB.Curriculum.csprojResolveAssemblyReference.cache
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Debug\YSB.Curriculum.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Debug\YSB.Curriculum.pdb

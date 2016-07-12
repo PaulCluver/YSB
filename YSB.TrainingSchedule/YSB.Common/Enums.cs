@@ -2,6 +2,14 @@
 {
     public class Enums
     {
+        public enum FileTypes
+        {
+            CSV,
+            TXT,
+            XLS,
+            XLSX
+        }
+
         public enum Animals
         {
             [EnumOrder(Order = 1)]

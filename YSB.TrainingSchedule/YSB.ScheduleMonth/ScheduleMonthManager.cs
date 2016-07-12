@@ -13,7 +13,7 @@ namespace YSB.ScheduleMonth
         {
             this.ScheduleMonthContainers = new List<ScheduleMonthItem>();
             List<Animals> animals = GetAnimals();
-            DateTime startDate = new DateTime(2017, 05, 01);
+            DateTime startDate = new DateTime(2016, 01, 01);
 
             for (int i = 0; i < ( (Enum.GetNames(typeof(Enums.AnimalAttackMethodForms)).Length) / (Enum.GetNames(typeof(Enums.AnimalStrategies)).Length)); i++)
             {
