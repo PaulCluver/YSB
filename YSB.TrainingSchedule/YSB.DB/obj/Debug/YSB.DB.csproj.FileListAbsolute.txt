@@ -1,0 +1,5 @@
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.DB\bin\Debug\YSB.DB.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.DB\bin\Debug\YSB.DB.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.DB\obj\Debug\YSB.DB.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.DB\obj\Debug\YSB.DB.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.DB\obj\Debug\YSB.DB.csprojResolveAssemblyReference.cache

@@ -91,6 +91,10 @@
       <Project>{e1bfa131-5c0b-4036-a898-4057c8de3e80}</Project>
       <Name>YSB.Curriculum</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YSB.DB\YSB.DB.csproj">
+      <Project>{0c519b6f-1a4d-4a38-ae0b-81317c3d8f10}</Project>
+      <Name>YSB.DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YSB.ScheduleMonth\YSB.ScheduleMonth.csproj">
       <Project>{b2fc71b7-9ab8-47e5-a0ce-f885173c16bd}</Project>
       <Name>YSB.ScheduleMonth</Name>

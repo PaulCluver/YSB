@@ -11,12 +11,12 @@ namespace YSB.Curriculum
         public List<CurriculumItem> GeneratedCurriculum { get; internal set; }
         public List<Enums.AnimalStrategies> AnimalStrategies { get; internal set; }
 
-        public CurriculumManager(int parentID, Enums.Animals animal)
+        public CurriculumManager(Enums.Animals animal)
         {
             this.Animal = animal;
             this.GeneratedCurriculum = new List<CurriculumItem>();
             
-            GeneratedCurriculum.Add(new CurriculumItem(parentID, animal, GetAnimalAttackMethods(animal), GetAnimalTurningMethods(animal), GetAnimalStandingMethods(animal), GetAnimalAttackMethodForms(new Random(), animal), GetAnimalStrategies(animal)));
+            GeneratedCurriculum.Add(new CurriculumItem(animal, GetAnimalAttackMethods(animal), GetAnimalTurningMethods(animal), GetAnimalStandingMethods(animal), GetAnimalAttackMethodForms(new Random(), animal), GetAnimalStrategies(animal)));
         }
 
         private List<Enums.AnimalStrategies> GetAnimalStrategies(Enums.Animals animal)
@@ -33,7 +33,7 @@ namespace YSB.Curriculum
             List<Enums.AnimalAttackMethodForms> animalAttackMethodForms = new List<Enums.AnimalAttackMethodForms>();
             this.AnimalStrategies = new List<Enums.AnimalStrategies>();
 
-            foreach (Enums.AnimalAttackMethods animalAttackMethod in Enum.GetValues(typeof(Enums.AnimalAttackMethods)).Cast<Enums.AnimalAttackMethods>().Where(x => x.ToString().Contains(animal.ToString())))
+            foreach (Enums.AttackMethodCategories animalAttackMethod in Enum.GetValues(typeof(Enums.AttackMethodCategories)).Cast<Enums.AttackMethodCategories>().Where(x => x.ToString().Contains(animal.ToString())))
             {
                 var items = Enum.GetValues(typeof(Enums.AnimalAttackMethodForms)).Cast<Enums.AnimalAttackMethodForms>().ToList().Where(x => x.ToString().Contains(animalAttackMethod.ToString()));
 

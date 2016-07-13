@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using YSB.Common;
 using YSB.ScheduleMonth;
+using YSB.DB;
+using System.Linq;
 
 namespace YSB.TrainingSchedule
 {
@@ -36,32 +35,40 @@ namespace YSB.TrainingSchedule
                 {
                     foreach (KeyValuePair<Enums.Animals, DateTime> vals in pair.Value)
                     {
-                        GeneratedSchedule.Add(new ScheduleItem(index, vals.Key, vals.Value, sm.Duration));
+                        GeneratedSchedule.Add(new ScheduleItem(vals.Key, vals.Value, sm.Duration));
                     }
                 }
             }
         }
 
-        internal void SaveGeneratedScheduleToFile(Enums.FileTypes csv)
+        public void SaveGeneratedScheduleToDB()
         {
-            var csvFile = new StringBuilder();
+            Database db = new Database();
+
             foreach (var item in GeneratedSchedule)
             {
-                string id = item.ID.ToString();
-                string animal = item.Animal.ToString();
-                string startDate = item.StartDate.ToShortDateString();
-                string endDate = item.EndDate.ToShortDateString();
-                string totalDays = item.TotalDays.ToString();
-                string doneDays = item.DoneDays.ToString();
-                string remainingDays = item.RemainingDays.ToString();
-                string totalWeeks = item.TotalWeeks.ToString();
-                string doneWeeks = item.DoneWeeks.ToString();
-                string remainingWeeks = item.RemainingWeeks.ToString();
-                string percentageDone = item.PercentageDone.ToString();
-                string newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}", id, animal, startDate, endDate, totalDays, doneDays, remainingDays, totalWeeks, doneWeeks, remainingWeeks, percentageDone);
-                csvFile.AppendLine(newLine);
+                int animalID = Convert.ToInt32(Enum.GetValues(typeof(Enums.Animals)).Cast<Enums.Animals>().ToList().Where(x => x.ToString().Equals(item.Animal.ToString())).Cast<Int32>().FirstOrDefault());
+                DateTime startDate = item.StartDate;
+                DateTime endDate = item.EndDate;
+                int totalDays = item.TotalDays;
+                int doneDays = item.DoneDays;
+                int remainingDays = item.RemainingDays;
+                double totalWeeks = item.TotalWeeks;
+                double doneWeeks = item.DoneWeeks;
+                double remainingWeeks = item.RemainingWeeks;
+                string percentageDone = item.PercentageDone;
+                db.InsertCurriculum(animalID, startDate, endDate, totalDays, doneDays, remainingDays, totalWeeks, doneWeeks, remainingWeeks, percentageDone);
+
+                foreach (var curriculumItem in item.Curriculum)
+                {
+                    int attackMethodFormID = Convert.ToInt32(Enum.GetValues(typeof(Enums.AnimalAttackMethodForms)).Cast<Enums.AnimalAttackMethodForms>().ToList().Where(x => x.ToString().Equals(curriculumItem.AttackMethodForms.ToString())).Cast<Int32>().FirstOrDefault());
+                    int attackMethodsID = Convert.ToInt32(Enum.GetValues(typeof(Enums.AttackMethods)).Cast<Enums.AttackMethods>().ToList().Where(x => x.ToString().Equals(curriculumItem.AttackMethods.ToString())).Cast<Int32>().FirstOrDefault());
+                    int standingMethodsID = Convert.ToInt32(Enum.GetValues(typeof(Enums.StandingMethods)).Cast<Enums.StandingMethods>().ToList().Where(x => x.ToString().Equals(curriculumItem.StandingMethods.ToString())).Cast<Int32>().FirstOrDefault());
+                    int strategiesID = Convert.ToInt32(Enum.GetValues(typeof(Enums.AnimalStrategies)).Cast<Enums.AnimalStrategies>().ToList().Where(x => x.ToString().Equals(curriculumItem.Strategies.ToString())).Cast<Int32>().FirstOrDefault());
+                    int turningMethodsID = Convert.ToInt32(Enum.GetValues(typeof(Enums.TurningMethods)).Cast<Enums.TurningMethods>().ToList().Where(x => x.ToString().Equals(curriculumItem.TurningMethods.ToString())).Cast<Int32>().FirstOrDefault());
+                    db.InsertCurriculumItem(attackMethodFormID, attackMethodsID, standingMethodsID, strategiesID, turningMethodsID);
+                }
             }
-            File.WriteAllText(@"E:\\Personal\\Programs\\YSB.TrainingSchedule\\YSB.TrainingSchedule\\YSB.GeneratedSchedule\\schedule.csv", csvFile.ToString());
         }
     }
 }

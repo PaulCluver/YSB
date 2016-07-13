@@ -16,3 +16,5 @@ E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSched
 E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSchedule\obj\Debug\YSB.TrainingSchedule.csprojResolveAssemblyReference.cache
 E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSchedule\obj\Debug\YSB.TrainingSchedule.dll
 E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSchedule\obj\Debug\YSB.TrainingSchedule.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSchedule\bin\Debug\YSB.DB.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.TrainingSchedule\bin\Debug\YSB.DB.pdb

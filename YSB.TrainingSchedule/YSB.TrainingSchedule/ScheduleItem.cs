@@ -7,7 +7,6 @@ namespace YSB.TrainingSchedule
 {
     public class ScheduleItem
     {
-        public int ID { get; internal set; }
         public Enums.Animals Animal { get; internal set; }
         public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
@@ -21,9 +20,8 @@ namespace YSB.TrainingSchedule
         public double RemainingWeeks { get; internal set; }
         private static CurriculumManager cm;
 
-        public ScheduleItem(int id, Enums.Animals animal, DateTime startDate, int duration)
+        public ScheduleItem(Enums.Animals animal, DateTime startDate, int duration)
         {
-            this.ID = id;
             this.Animal = animal;
             this.StartDate = startDate;
             this.EndDate = startDate.AddMonths(duration);
@@ -34,7 +32,7 @@ namespace YSB.TrainingSchedule
             this.RemainingWeeks = GetRemainingWeeks();
             this.DoneWeeks = TotalWeeks - RemainingWeeks;
             this.PercentageDone = GetPercentageDone(TotalDays, DoneDays);
-            cm = new CurriculumManager(this.ID, this.Animal);
+            cm = new CurriculumManager(this.Animal);
             this.Curriculum = cm.GeneratedCurriculum;
         }
 
