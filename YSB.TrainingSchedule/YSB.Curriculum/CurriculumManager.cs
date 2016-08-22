@@ -15,8 +15,8 @@ namespace YSB.Curriculum
         {
             this.Animal = animal;
             this.GeneratedCurriculum = new List<CurriculumItem>();
-            
-            GeneratedCurriculum.Add(new CurriculumItem(animal, GetAnimalAttackMethods(animal), GetAnimalTurningMethods(animal), GetAnimalStandingMethods(animal), GetAnimalAttackMethodForms(new Random(), animal), GetAnimalStrategies(animal)));
+
+            GeneratedCurriculum.Add(new CurriculumItem(this.Animal, GetAnimalAttackMethods(this.Animal), GetAnimalTurningMethods(this.Animal), GetAnimalStandingMethods(this.Animal), GetAnimalAttackMethodForms(new Random(), this.Animal), GetAnimalStrategies(this.Animal)));
         }
 
         private List<Enums.AnimalStrategies> GetAnimalStrategies(Enums.Animals animal)
@@ -33,6 +33,20 @@ namespace YSB.Curriculum
             List<Enums.AnimalAttackMethodForms> animalAttackMethodForms = new List<Enums.AnimalAttackMethodForms>();
             this.AnimalStrategies = new List<Enums.AnimalStrategies>();
 
+            if (animal == Enums.Animals.Lion)
+            {
+                GetAttackMethodForms(rand, animal, animalAttackMethodForms);
+            }
+            else
+            {
+                GetAttackMethodForms(rand, animal, animalAttackMethodForms);
+            }
+
+            return animalAttackMethodForms;
+        }
+
+        private void GetAttackMethodForms(Random rand, Enums.Animals animal, List<Enums.AnimalAttackMethodForms> animalAttackMethodForms)
+        {
             foreach (Enums.AttackMethodCategories animalAttackMethod in Enum.GetValues(typeof(Enums.AttackMethodCategories)).Cast<Enums.AttackMethodCategories>().Where(x => x.ToString().Contains(animal.ToString())))
             {
                 var items = Enum.GetValues(typeof(Enums.AnimalAttackMethodForms)).Cast<Enums.AnimalAttackMethodForms>().ToList().Where(x => x.ToString().Contains(animalAttackMethod.ToString()));
@@ -42,7 +56,6 @@ namespace YSB.Curriculum
                     if (this.AnimalStrategies.Count == 0)
                     {
                         GetAnimalStrategies(animal);
-
                     }
                     int randStrategy = rand.Next(0, this.AnimalStrategies.Count());
                     Enums.AnimalStrategies animalStrategy = this.AnimalStrategies.Cast<Enums.AnimalStrategies>().ElementAt(randStrategy);
@@ -53,8 +66,6 @@ namespace YSB.Curriculum
                     animalAttackMethodForms.Add(animalAttackMethodFormsItem);
                 }
             }
-
-            return animalAttackMethodForms;
         }
 
         private string GetStrategyName(Enums.AnimalStrategies animalStrategy)

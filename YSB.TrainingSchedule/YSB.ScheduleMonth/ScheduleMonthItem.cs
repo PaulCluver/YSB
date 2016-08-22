@@ -20,7 +20,7 @@ namespace YSB.ScheduleMonth
             this.StartDate = startDate;
             this.Duration = duration;
             this.ScheduleMonthItems = new Dictionary<string, Dictionary<Enums.Animals, DateTime>>();
-            this.ScheduleMonthItems.Add(string.Format("{0} {1} {2}", this.Animal.ToString(), CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(startDate.Month), startDate.Year), new Dictionary<Enums.Animals, DateTime>() { { this.Animal, startDate } });
+            this.ScheduleMonthItems.Add(string.Format("{0} {1} {2}", animal.ToString(), CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(startDate.Month), startDate.Year), new Dictionary<Enums.Animals, DateTime>() { { animal, startDate } });
         }
     }
 }

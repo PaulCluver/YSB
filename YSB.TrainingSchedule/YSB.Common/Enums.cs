@@ -2,20 +2,24 @@
 {
     public class Enums
     {
-
         public enum Animals
         {
             [EnumOrder(Order = 1)]
             Lion = 1,
+
             [EnumOrder(Order = 2)]
-            Dragon = 2,
+            Bear = 2,
+
             [EnumOrder(Order = 3)]
-            Bear = 3,
+            Phoenix = 3,
+
             [EnumOrder(Order = 4)]
-            Phoenix = 4,
+            Rooster = 4,
+
             [EnumOrder(Order = 5)]
-            Rooster = 5
+            Dragon = 5,
         }
+
         public enum AttackMethods
         {
             Lion_Sweeping_Rising = 1,
@@ -89,7 +93,7 @@
             Dragon_Chopping_Reversing = 69,
             Dragon_Entering_Borrowing = 70,
             Dragon_Entering_Leading = 71,
-            Phoenix_Entering_Forcing = 72,
+            Dragon_Entering_Forcing = 72,
             Phoenix_Dodging_Opening = 73,
             Phoenix_Dodging_Whirling = 74,
             Phoenix_Dodging_Arcing = 75,
@@ -127,6 +131,7 @@
             Rooster_Rising_Single_Hand = 107,
             Rooster_Rising_Whirling = 108
         }
+
         public enum TurningMethods
         {
             Lion_Sweeping_Turning = 1,
@@ -166,6 +171,7 @@
             Rooster_Entering_Turning = 35,
             Rooster_Rising_Turning = 36
         }
+
         public enum StandingMethods
         {
             Lion_Representative_Posture = 1,
@@ -210,6 +216,7 @@
             Rooster_Entering_Posture = 40,
             Rooster_Rising_Posture = 41
         }
+
         public enum AnimalAttackMethodForms
         {
             Lion_Sweeping_Moving_With_The_Force = 1,
@@ -493,6 +500,7 @@
             Rooster_Stabbing_Reversing_The_Body = 279,
             Rooster_Stabbing_Enfolding = 280
         }
+
         public enum AttackMethodCategories
         {
             Lion_Sweeping = 1,
@@ -536,6 +544,7 @@
             Rooster_Rushing = 39,
             Rooster_Stabbing = 40
         }
+
         public enum AnimalStrategies
         {
             Lion_Interlocking = 1,

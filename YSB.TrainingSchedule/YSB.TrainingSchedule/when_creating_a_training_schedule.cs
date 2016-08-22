@@ -10,7 +10,6 @@ namespace YSB.TrainingSchedule
     {
         private static ScheduleManager ts;
         private static List<ScheduleItem> schedule;
-        
 
         private Establish context = () =>
         {
@@ -69,11 +68,6 @@ namespace YSB.TrainingSchedule
             schedule.ShouldNotBeNull();
         };
 
-        private It should_have_a_focus_animal = () =>
-        {
-            schedule.FirstOrDefault().Animal.ShouldBeOfExactType(typeof(Enums.Animals));
-        };
-
         private It should_have_a_remaining_days_of_0_if_a_schedule_is_in_the_past = () =>
         {
             var results = schedule.Where(x => x.EndDate < DateTime.Now);
@@ -119,9 +113,9 @@ namespace YSB.TrainingSchedule
             results.FirstOrDefault().RemainingDays.ShouldEqual(remainingDays);
         };
 
-        private It should_have_a_curriculum = () =>
+        private It should_have_a_combined_curriculum = () =>
         {
-            schedule.FirstOrDefault().Curriculum.ShouldNotBeNull();
+            schedule.FirstOrDefault().CombinedCurriculum.ShouldNotBeNull();
         };
     }
 }

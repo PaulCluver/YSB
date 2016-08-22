@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using YSB.Common;
 using YSB.Curriculum;
 
@@ -7,10 +8,9 @@ namespace YSB.TrainingSchedule
 {
     public class ScheduleItem
     {
-        public Enums.Animals Animal { get; internal set; }
         public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
-        public List<CurriculumItem> Curriculum { get; internal set; }
+        public List<CurriculumItem> CombinedCurriculum { get; internal set; }
         public int TotalDays { get; internal set; }
         public int RemainingDays { get; internal set; }
         public int DoneDays { get; internal set; }
@@ -18,11 +18,12 @@ namespace YSB.TrainingSchedule
         public double TotalWeeks { get; internal set; }
         public double DoneWeeks { get; internal set; }
         public double RemainingWeeks { get; internal set; }
-        private static CurriculumManager cm;
+
+        private static CurriculumManager primaryCurriculumManager;
+        private static CurriculumManager secondaryCurriculumManager;
 
         public ScheduleItem(Enums.Animals animal, DateTime startDate, int duration)
         {
-            this.Animal = animal;
             this.StartDate = startDate;
             this.EndDate = startDate.AddMonths(duration);
             this.TotalDays = Convert.ToInt32((EndDate - StartDate).TotalDays);
@@ -32,8 +33,39 @@ namespace YSB.TrainingSchedule
             this.RemainingWeeks = GetRemainingWeeks();
             this.DoneWeeks = TotalWeeks - RemainingWeeks;
             this.PercentageDone = GetPercentageDone(TotalDays, DoneDays);
-            cm = new CurriculumManager(this.Animal);
-            this.Curriculum = cm.GeneratedCurriculum;
+
+            primaryCurriculumManager = new CurriculumManager(animal);
+            secondaryCurriculumManager = new CurriculumManager(Enums.Animals.Lion);
+
+            this.CombinedCurriculum = new List<CurriculumItem>() { primaryCurriculumManager.GeneratedCurriculum.FirstOrDefault(), secondaryCurriculumManager.GeneratedCurriculum.FirstOrDefault() };
+
+            List<Enums.AttackMethods> striking = new List<Enums.AttackMethods>();
+            List<Enums.AnimalAttackMethodForms> changing = new List<Enums.AnimalAttackMethodForms>();
+            List<Enums.StandingMethods> standing = new List<Enums.StandingMethods>();
+            List<Enums.TurningMethods> turning = new List<Enums.TurningMethods>();
+
+            foreach (var curriculum in this.CombinedCurriculum)
+            {
+                foreach (var attackMethods in curriculum.AttackMethods)
+                {
+                    striking.Add(attackMethods);
+                }
+
+                foreach (var attackMethodForm in curriculum.AttackMethodForms)
+                {
+                    changing.Add(attackMethodForm);
+                }
+
+                foreach (var standingMethods in curriculum.StandingMethods)
+                {
+                    standing.Add(standingMethods);
+                }
+
+                foreach (var turningMethods in curriculum.TurningMethods)
+                {
+                    turning.Add(turningMethods);
+                }
+            }
         }
 
         private string GetPercentageDone(int totalDays, int doneDays)
@@ -49,7 +81,7 @@ namespace YSB.TrainingSchedule
             {
                 remainingWeeks = this.TotalWeeks;
             }
-            
+
             return remainingWeeks;
         }
 

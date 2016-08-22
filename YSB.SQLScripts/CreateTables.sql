@@ -57,13 +57,40 @@ CREATE TABLE Curriculums
 	PercentageDone VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE CurriculumItems
+USE [YSB]
+GO
+
+CREATE TABLE CurriculumAttackMethodForms
 (
 	ID int IDENTITY(1,1) PRIMARY KEY,
 	ParentCurriculumID INT NOT NULL,
-	AttackMethodFormID INT NOT NULL,
-	AttackMethodsID INT NOT NULL,
-	StandingMethodsID INT NOT NULL,
-	StrategiesID INT NOT NULL,
+	AttackMethodFormID INT NOT NULL
+)
+
+CREATE TABLE CurriculumAttackMethods
+(
+	ID int IDENTITY(1,1) PRIMARY KEY,
+	ParentCurriculumID INT NOT NULL,
+	AttackMethodsID INT NOT NULL
+)
+
+CREATE TABLE CurriculumStandingMethods
+(
+	ID int IDENTITY(1,1) PRIMARY KEY,
+	ParentCurriculumID INT NOT NULL,
+	StandingMethodsID INT NOT NULL
+)
+
+CREATE TABLE CurriculumStrategies
+(
+	ID int IDENTITY(1,1) PRIMARY KEY,
+	ParentCurriculumID INT NOT NULL,
+	StrategiesID INT NOT NULL
+)
+
+CREATE TABLE CurriculumTurningMethods
+(
+	ID int IDENTITY(1,1) PRIMARY KEY,
+	ParentCurriculumID INT NOT NULL,
 	TurningMethodsID INT NOT NULL
 )

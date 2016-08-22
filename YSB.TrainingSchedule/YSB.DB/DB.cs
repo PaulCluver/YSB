@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,6 +9,7 @@ namespace YSB.DB
     {
         private string ConnectionString { get; set; }
         private int CurriculumID { get; set; }
+
         public Database()
         {
             this.ConnectionString = "Data Source=D101763;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -20,7 +22,7 @@ namespace YSB.DB
                 conn.ConnectionString = this.ConnectionString;
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("dbo.InsertCurriculum", conn);
+                SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculum", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@AnimalID", animalID));
                 cmd.Parameters.Add(new SqlParameter("@StartDate", startDate));
@@ -32,6 +34,7 @@ namespace YSB.DB
                 cmd.Parameters.Add(new SqlParameter("@DoneWeeks", doneWeeks));
                 cmd.Parameters.Add(new SqlParameter("@RemainingWeeks", remainingWeeks));
                 cmd.Parameters.Add(new SqlParameter("@PercentageDone", percentageDone));
+                cmd.Parameters.Add(new SqlParameter("@NewID", SqlDbType.Int) { Direction = ParameterDirection.Output });
 
                 cmd.ExecuteNonQuery();
 
@@ -40,25 +43,81 @@ namespace YSB.DB
             }
         }
 
-        public void InsertCurriculumItem(int attackMethodFormID, int attackMethodsID, int standingMethodsID, int strategiesID, int turningMethodsID)
+        public void InsertCurriculumItem(List<int> animalAttackMethodFormIDs, List<int> attackMethodsIDs, List<int> standingMethodsIDs, List<int> strategyIDs, List<int> turningMethodsIDs)
         {
-            using (SqlConnection conn = new SqlConnection())
+            foreach (var id in animalAttackMethodFormIDs)
             {
-                conn.ConnectionString = this.ConnectionString;
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("dbo.InsertCurriculumItems", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
-                cmd.Parameters.Add(new SqlParameter("@AttackMethodFormID", attackMethodFormID));
-                cmd.Parameters.Add(new SqlParameter("@AttackMethodsID", attackMethodsID));
-                cmd.Parameters.Add(new SqlParameter("@StandingMethodsID", standingMethodsID));
-                cmd.Parameters.Add(new SqlParameter("@StrategiesID", strategiesID));
-                cmd.Parameters.Add(new SqlParameter("@TurningMethodsID", turningMethodsID));
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = this.ConnectionString;
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculumAttackMethodForms", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
+                    cmd.Parameters.Add(new SqlParameter("@AttackMethodFormID", id));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
 
-                cmd.ExecuteNonQuery();
+            foreach (var id in attackMethodsIDs)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = this.ConnectionString;
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculumAttackMethods", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
+                    cmd.Parameters.Add(new SqlParameter("@AttackMethodsID", id));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
 
-                this.CurriculumID = Convert.ToInt32(cmd.Parameters["@NewID"].Value);
-                conn.Close();
+            foreach (var id in standingMethodsIDs)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = this.ConnectionString;
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculumStandingMethods", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
+                    cmd.Parameters.Add(new SqlParameter("@StandingMethodID", id));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
+            foreach (var id in strategyIDs)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = this.ConnectionString;
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculumStrategies", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
+                    cmd.Parameters.Add(new SqlParameter("@StrategiesID", id));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
+            foreach (var id in turningMethodsIDs)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = this.ConnectionString;
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("[YSB].[dbo].InsertCurriculumTurningMethods", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ParentCurriculumID", this.CurriculumID));
+                    cmd.Parameters.Add(new SqlParameter("@TurningMethodsID", id));
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
         }
     }

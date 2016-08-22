@@ -1,0 +1,6 @@
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Release\YSB.Curriculum.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Release\YSB.Curriculum.pdb
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\bin\Release\Machine.Specifications.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Release\YSB.Curriculum.csprojResolveAssemblyReference.cache
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Release\YSB.Curriculum.dll
+E:\Personal\Programs\YSB.TrainingSchedule\YSB.TrainingSchedule\YSB.Curriculum\obj\Release\YSB.Curriculum.pdb

@@ -1,5 +1,4 @@
-﻿using System;
-using YSB.Common;
+﻿using YSB.Common;
 
 namespace YSB.ScheduleMonth
 {

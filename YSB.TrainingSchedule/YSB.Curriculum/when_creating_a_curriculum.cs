@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using YSB.Common;
 
 namespace YSB.Curriculum
@@ -11,27 +11,37 @@ namespace YSB.Curriculum
         private static CurriculumManager manager;
         private static List<CurriculumItem> result;
 
-        Establish context = () =>
+        private Establish context = () =>
+         {
+             manager = new CurriculumManager(Enums.Animals.Dragon);
+         };
+
+        private Because of = () =>
+         {
+             result = manager.GeneratedCurriculum;
+         };
+
+        private It should_not_be_null = () =>
+         {
+             result.ShouldNotBeNull();
+         };
+
+        private It should_be_of_type_CurriculumItem = () =>
+         {
+             result.FirstOrDefault().ShouldBeOfExactType<CurriculumItem>();
+         };
+
+        private It should_have_an_animal = () =>
+         {
+             result.FirstOrDefault().Animal.ShouldNotBeNull();
+         };
+
+        private It should_have_a_primary_curriculum_that_has_24_attack_methods = () =>
         {
-            manager = new CurriculumManager(Enums.Animals.Lion);
+            result.FirstOrDefault().AttackMethods.Count().ShouldEqual(24);
         };
 
-        Because of = () =>
-        {
-            result = manager.GeneratedCurriculum;
-        };
-
-        It should_not_be_null = () =>
-        {
-            result.ShouldNotBeNull();
-        };
-
-        It should_be_of_type_CurriculumItem = () =>
-        {
-            result.FirstOrDefault().ShouldBeOfExactType<CurriculumItem>();
-        };
-
-        private It should_have_a_curriculum_that_has_24_attack_methods = () =>
+        private It should_have_a_secondary_curriculum_that_has_6_attack_methods = () =>
         {
             result.FirstOrDefault().AttackMethods.Count().ShouldEqual(24);
         };
@@ -64,9 +74,9 @@ namespace YSB.Curriculum
 
             foreach (Enums.AnimalStrategies strategy in Enum.GetValues(typeof(Enums.AnimalStrategies)))
             {
-                if (!strategy.ToString().Equals(Enums.AnimalStrategies.Lion_Interlocking.ToString()))
+                if (!strategy.ToString().Equals(Enums.AnimalStrategies.Dragon_Holding_And_Lifting.ToString()))
                 {
-                    string[] name = strategy.ToString().Split('_');        
+                    string[] name = strategy.ToString().Split('_');
 
                     attackMethodsAndForms.FindIndex(x => x.ToString().Contains(name[1])).ShouldNotEqual(-1);
                 }
@@ -78,7 +88,7 @@ namespace YSB.Curriculum
             List<Enums.AnimalStrategies> animalStrategies = result.FirstOrDefault().Strategies;
             animalStrategies.ShouldContain(Enums.AnimalStrategies.Snake_Moving_With_The_Force);
             animalStrategies.ShouldContain(Enums.AnimalStrategies.Bear_Turning_The_Back);
-            animalStrategies.ShouldContain(Enums.AnimalStrategies.Dragon_Holding_And_Lifting);
+            animalStrategies.ShouldContain(Enums.AnimalStrategies.Lion_Interlocking);
             animalStrategies.ShouldContain(Enums.AnimalStrategies.Phoenix_Windmill);
             animalStrategies.ShouldContain(Enums.AnimalStrategies.Rooster_Lying_Step);
             animalStrategies.ShouldContain(Enums.AnimalStrategies.Unicorn_Reversing_The_Body);
