@@ -113,9 +113,9 @@ namespace YSB.TrainingSchedule
             results.FirstOrDefault().RemainingDays.ShouldEqual(remainingDays);
         };
 
-        private It should_have_a_combined_curriculum = () =>
+        private It should_have_a_daily_program = () =>
         {
-            schedule.FirstOrDefault().CombinedCurriculum.ShouldNotBeNull();
-        };
+            schedule.FirstOrDefault().DailyProgram.ShouldNotBeNull();
+        };        
     }
 }

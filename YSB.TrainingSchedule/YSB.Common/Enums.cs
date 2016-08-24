@@ -121,15 +121,27 @@
             Rooster_Dodging_Whirling_Body = 97,
             Rooster_Dodging_Moving_with_the_Force = 98,
             Rooster_Dodging_Lying = 99,
-            Rooster_Shifting_Whirling_Body = 100,
-            Rooster_Shifting_Closing = 101,
-            Rooster_Shifting_Grinding = 102,
-            Rooster_Entering_Wiping = 103,
-            Rooster_Entering_Lying = 104,
-            Rooster_Entering_Fist = 105,
-            Rooster_Rising_Lying_Dodging = 106,
-            Rooster_Rising_Single_Hand = 107,
-            Rooster_Rising_Whirling = 108
+            Rooster_Extending_1 = 100,
+            Rooster_Extending_2 = 101,
+            Rooster_Extending_3 = 102,
+            Rooster_Whipping_1 = 103,
+            Rooster_Whipping_2 = 104,
+            Rooster_Whipping_3 = 105,
+            Rooster_Rushing_1 = 106,
+            Rooster_Rushing_2 = 107,
+            Rooster_Rushing_3 = 108,
+            Rooster_Stabbing_1 = 109,
+            Rooster_Stabbing_2 = 110,
+            Rooster_Stabbing_3 = 111,
+            Rooster_Shifting_Whirling_Body = 112,
+            Rooster_Shifting_Closing = 113,
+            Rooster_Shifting_Grinding = 114,
+            Rooster_Entering_Wiping = 115,
+            Rooster_Entering_Lying = 116,
+            Rooster_Entering_Fist = 117,
+            Rooster_Rising_Lying_Dodging = 118,
+            Rooster_Rising_Single_Hand = 119,
+            Rooster_Rising_Whirling = 120
         }
 
         public enum TurningMethods
@@ -169,7 +181,11 @@
             Rooster_Dodging_Turning = 33,
             Rooster_Shifting_Turning = 34,
             Rooster_Entering_Turning = 35,
-            Rooster_Rising_Turning = 36
+            Rooster_Rising_Turning = 36,
+            Rooster_Extending_Turning = 37,
+            Rooster_Rushing_Turning = 38,
+            Rooster_Whipping_Turning = 39,
+            Rooster_Stabbing_Turning = 40
         }
 
         public enum StandingMethods
@@ -214,7 +230,11 @@
             Rooster_Dodging_Posture = 38,
             Rooster_Shifting_Posture = 39,
             Rooster_Entering_Posture = 40,
-            Rooster_Rising_Posture = 41
+            Rooster_Rising_Posture = 41,
+            Rooster_Rushing_Posture = 42,
+            Rooster_Extending_Posture = 43,
+            Rooster_Whipping_Posture = 44,
+            Rooster_Stabing_Posture = 45
         }
 
         public enum AnimalAttackMethodForms

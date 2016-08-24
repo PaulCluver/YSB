@@ -10,7 +10,6 @@ namespace YSB.TrainingSchedule
     {
         public DateTime StartDate { get; internal set; }
         public DateTime EndDate { get; internal set; }
-        public List<CurriculumItem> CombinedCurriculum { get; internal set; }
         public int TotalDays { get; internal set; }
         public int RemainingDays { get; internal set; }
         public int DoneDays { get; internal set; }
@@ -18,9 +17,11 @@ namespace YSB.TrainingSchedule
         public double TotalWeeks { get; internal set; }
         public double DoneWeeks { get; internal set; }
         public double RemainingWeeks { get; internal set; }
+        public List<DailyProgram> DailyProgram { get; internal set; }
 
         private static CurriculumManager primaryCurriculumManager;
         private static CurriculumManager secondaryCurriculumManager;
+        private static DailyProgramManager dailyProgramManager;
 
         public ScheduleItem(Enums.Animals animal, DateTime startDate, int duration)
         {
@@ -37,18 +38,29 @@ namespace YSB.TrainingSchedule
             primaryCurriculumManager = new CurriculumManager(animal);
             secondaryCurriculumManager = new CurriculumManager(Enums.Animals.Lion);
 
-            this.CombinedCurriculum = new List<CurriculumItem>() { primaryCurriculumManager.GeneratedCurriculum.FirstOrDefault(), secondaryCurriculumManager.GeneratedCurriculum.FirstOrDefault() };
+            List<CurriculumItem> combinedCurriculum = new List<CurriculumItem>() { primaryCurriculumManager.GeneratedCurriculum.FirstOrDefault(), secondaryCurriculumManager.GeneratedCurriculum.FirstOrDefault() };
 
-            List<Enums.AttackMethods> striking = new List<Enums.AttackMethods>();
-            List<Enums.AnimalAttackMethodForms> changing = new List<Enums.AnimalAttackMethodForms>();
             List<Enums.StandingMethods> standing = new List<Enums.StandingMethods>();
+            List<Enums.AttackMethods> striking = new List<Enums.AttackMethods>();
             List<Enums.TurningMethods> turning = new List<Enums.TurningMethods>();
+            List<Enums.AnimalAttackMethodForms> changing = new List<Enums.AnimalAttackMethodForms>();
 
-            foreach (var curriculum in this.CombinedCurriculum)
+            foreach (var curriculum in combinedCurriculum)
             {
+
+                foreach (var standingMethods in curriculum.StandingMethods)
+                {
+                    standing.Add(standingMethods);
+                }
+
                 foreach (var attackMethods in curriculum.AttackMethods)
                 {
                     striking.Add(attackMethods);
+                }
+
+                foreach (var turningMethods in curriculum.TurningMethods)
+                {
+                    turning.Add(turningMethods);
                 }
 
                 foreach (var attackMethodForm in curriculum.AttackMethodForms)
@@ -56,16 +68,10 @@ namespace YSB.TrainingSchedule
                     changing.Add(attackMethodForm);
                 }
 
-                foreach (var standingMethods in curriculum.StandingMethods)
-                {
-                    standing.Add(standingMethods);
-                }
-
-                foreach (var turningMethods in curriculum.TurningMethods)
-                {
-                    turning.Add(turningMethods);
-                }
             }
+
+            dailyProgramManager = new DailyProgramManager(animal, standing, striking, turning, changing);
+            this.DailyProgram = dailyProgramManager.GeneratedDailyProgram;
         }
 
         private string GetPercentageDone(int totalDays, int doneDays)

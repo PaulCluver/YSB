@@ -11,7 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSB.Curriculum", "YSB.Curri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSB.ScheduleMonth", "YSB.ScheduleMonth\YSB.ScheduleMonth.csproj", "{B2FC71B7-9AB8-47E5-A0CE-F885173C16BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSB.DB", "YSB.DB\YSB.DB.csproj", "{0C519B6F-1A4D-4A38-AE0B-81317C3D8F10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YSB.Runner", "YSB.Runner\YSB.Runner.csproj", "{DD8CFB30-9BC1-4B09-81CA-C10014B068F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67DD84AC-4C8F-46A7-8D72-0110FFD58681}"
+	ProjectSection(SolutionItems) = preProject
+		YSB.Data\curriculums.xml = YSB.Data\curriculums.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +40,10 @@ Global
 		{B2FC71B7-9AB8-47E5-A0CE-F885173C16BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2FC71B7-9AB8-47E5-A0CE-F885173C16BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2FC71B7-9AB8-47E5-A0CE-F885173C16BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C519B6F-1A4D-4A38-AE0B-81317C3D8F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C519B6F-1A4D-4A38-AE0B-81317C3D8F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C519B6F-1A4D-4A38-AE0B-81317C3D8F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C519B6F-1A4D-4A38-AE0B-81317C3D8F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8CFB30-9BC1-4B09-81CA-C10014B068F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8CFB30-9BC1-4B09-81CA-C10014B068F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8CFB30-9BC1-4B09-81CA-C10014B068F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8CFB30-9BC1-4B09-81CA-C10014B068F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

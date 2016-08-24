@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Curriculums>
+  <Curriculum>
+    <ID>1</ID>
+    <StartDate />
+    <EndDate />
+    <TotalDays />
+    <TotalWeeks />
+    <DoneDays />
+    <DoneWeeks />
+    <RemainingDays />
+    <RemainingWeeks />
+    <PercentageDone />
+    <DailyProgram>
+      <ChangingMethods>
+        <ChangingMethod />
+      </ChangingMethods>
+      <StandingMethods>
+        <StandingMethod />
+      </StandingMethods>
+      <StrikingMethods>
+        <StrikingMethod />
+      </StrikingMethods>
+      <TurningMethods>
+        <TurningMethod />
+      </TurningMethods>
+    </DailyProgram>
+  </Curriculum>
+</Curriculums>

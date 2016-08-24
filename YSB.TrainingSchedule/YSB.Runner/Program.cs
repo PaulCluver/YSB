@@ -10,22 +10,8 @@ namespace YSB.Runner
         
         private static void Main(string[] args)
         {
-
             ScheduleManager sm = new ScheduleManager();
-            
-            foreach (var item in sm.GeneratedSchedule)
-            {                
-                foreach (var curriculumItem in item.Curriculum)
-                {
-                    foreach (var attackMethodForm in curriculumItem.AttackMethodForms)
-                    {
-                        
-                    }
-                }                
-            }
-            sm.SaveGeneratedScheduleToDB();
+            sm.WriteGeneratedScheduleToXML();
         }
-
-        
     }
 }
