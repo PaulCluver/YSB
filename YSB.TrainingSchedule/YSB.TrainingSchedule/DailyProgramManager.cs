@@ -20,7 +20,7 @@ namespace YSB.TrainingSchedule
             this.GeneratedDailyProgram = new List<DailyProgram>();
             this.Animal = animal;
 
-            for (int day = 1; day <= 7; day++)
+            for (int day = 1; day <= 8; day++)
             {
                 GeneratedDailyProgram.Add(new DailyProgram(day, GetStandingMethods(animal, standing), GetStrikingMethods(animal, striking), GetTurningMethods(animal, turning), GetChangingMethods(animal, changing)));
             }

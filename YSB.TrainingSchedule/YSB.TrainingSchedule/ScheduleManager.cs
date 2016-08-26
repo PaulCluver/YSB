@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.Linq;
 using YSB.Common;
 using YSB.ScheduleMonth;
 
@@ -15,6 +16,11 @@ namespace YSB.TrainingSchedule
         {
             List<ScheduleMonthItem> scheduleMonthContainers = GenerateScheduleMonthContainers();
             GenerateSchedule(scheduleMonthContainers);
+        }
+
+        internal void PopulateScheduleFromXML()
+        {
+            
         }
 
         private List<ScheduleMonthItem> GenerateScheduleMonthContainers()

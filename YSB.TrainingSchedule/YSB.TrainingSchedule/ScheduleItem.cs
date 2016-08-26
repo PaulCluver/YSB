@@ -74,6 +74,21 @@ namespace YSB.TrainingSchedule
             this.DailyProgram = dailyProgramManager.GeneratedDailyProgram;
         }
 
+        public ScheduleItem(Enums.Animals animal, DateTime startDate, DateTime endDate, int totalDays, int remainingDays, int doneDays, double totalWeeks, int remainingWeeks, int doneWeeks, string percentageDone, List<DailyProgram> dailyPrograms)
+        {
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this.TotalDays = totalDays;
+            this.RemainingDays = remainingDays;
+            this.DoneDays = doneDays;
+            this.TotalWeeks = totalWeeks;
+            this.RemainingWeeks = remainingWeeks;
+            this.DoneWeeks = doneWeeks;
+            this.PercentageDone = percentageDone;
+            this.DailyProgram = dailyPrograms;
+            
+        }
+
         private string GetPercentageDone(int totalDays, int doneDays)
         {
             double ratio = ((double)doneDays / totalDays);

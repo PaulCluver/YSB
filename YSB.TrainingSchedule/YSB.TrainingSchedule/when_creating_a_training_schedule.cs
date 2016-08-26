@@ -8,17 +8,17 @@ namespace YSB.TrainingSchedule
 {
     internal class when_creating_a_training_schedule
     {
-        private static ScheduleManager ts;
+        private static ScheduleManager sm;
         private static List<ScheduleItem> schedule;
 
         private Establish context = () =>
         {
-            ts = new ScheduleManager();
+            sm = new ScheduleManager();
         };
 
         private Because of = () =>
         {
-            schedule = ts.GeneratedSchedule;
+            schedule = sm.GeneratedSchedule;
         };
 
         private It should_have_a_start_date = () =>
